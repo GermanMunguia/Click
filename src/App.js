@@ -9,6 +9,7 @@ import "./s.css";
 //some timer 
 //change button to image
 //add background
+//cap size?
 
 class App extends React.Component {
 
