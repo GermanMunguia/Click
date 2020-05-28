@@ -3,7 +3,6 @@ import "./s.css";
 
 //top = 0, 880
 //left = 0, 1600
-
 //ToDo:
 //add a counter which increments+1 everyclick 
 //some timer 
