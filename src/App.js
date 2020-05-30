@@ -59,18 +59,12 @@ class App extends React.Component {
 
   render() {
 
-
-    const text = {
-      textAlign: 'center',
-      fontSize: 70,
-    }
-
     //win the game if a score cap is set
     if (this.state.count == this.state.goal) {
 
       return (
         <div>
-          <h1 style={text}> WINNER </h1>
+          <h1 className="text"> WINNER </h1>
           <button style={{
             height: 75,
             width: 75,
@@ -95,9 +89,9 @@ class App extends React.Component {
     if (this.state.count == 0) {
       return (
         <div>
-          <h1 style={text}>CLICK THE TARGET TO BEGIN</h1>
-          <p> Set a goal </p>
-          <input type="number" onChange={this.goal} defaultValue="10" min="2" />
+          <h1 className='text'>CLICK THE TARGET TO BEGIN</h1>
+          <h2 className='p'> Choose the number of targets you want to practice on </h2>
+          <input type="number" onChange={this.goal} defaultValue="10" min="2" className='goal' />
           <img style={button} onClick={this.onClick} src={target} alt="target" />
         </div >
       )

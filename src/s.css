@@ -28,10 +28,30 @@
 }
 
 body {
-  background-color: burlywood;
+  background: url(https://wallpaperaccess.com/full/413721.jpg) no-repeat 0, 0 #99e9ff;
+  background-position: center;
+  background-size: 3000px;
 }
 
-/* img {
-  height: 50px;
-  width: 50px;
-} */
+.text {
+  text-align: center;
+  font-size: 90px;
+  background-color: white;
+}
+
+.goal {
+  position: absolute;
+  padding: 15px 32px;
+  font-size: 40px;
+  left: 47%;
+  width: 100px;
+  text-align: center;
+  background-color: whitesmoke;
+  font-family: ocr;
+}
+
+.p{
+  text-align: center;
+  font-size: 70;
+  background-color:gray;
+}
