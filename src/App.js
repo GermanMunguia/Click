@@ -92,10 +92,11 @@ class App extends React.Component {
     }
 
     //starting position
-    if (this.state.count === 0) {
+    if (this.state.count == 0) {
       return (
         <div>
           <h1 style={text}>CLICK THE TARGET TO BEGIN</h1>
+          <p> Set a goal </p>
           <input type="number" onChange={this.goal} defaultValue="10" min="2" />
           <img style={button} onClick={this.onClick} src={target} alt="target" />
         </div >
