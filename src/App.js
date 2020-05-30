@@ -15,16 +15,19 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      top: 440,
-      left: 800
+      top: (window.innerHeight / 2),
+      left: (window.innerWidth / 2),
+      count: 0
     };
     this.onClick = this.move.bind(this);
   }
 
+  //when target is hit, change position and add to score count
   move() {
     this.setState({
-      top: (Math.random() * 880),
-      left: (Math.random() * 1600)
+      top: (Math.random() * (window.innerHeight - 0)),
+      left: (Math.random() * (window.innerHeight - 0)), //sub based on target size
+      count: this.state.count + 1
     });
   }
 
@@ -40,7 +43,10 @@ class App extends React.Component {
     }
 
     return (
-      <button style={button} onClick={this.onClick}>HIT ME</button>
+      <div>
+        <button style={button} onClick={this.onClick}>HIT ME</button>
+        <h1 className="score">Score: {this.state.count}</h1>
+      </div>
     )
   };
 }
