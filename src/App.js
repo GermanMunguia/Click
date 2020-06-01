@@ -1,9 +1,13 @@
 import React from "react";
 import "./s.css";
 import target from "./target.png"
+import s1 from "./s3.wav"
+
 
 //ToDo: 
 //some timer
+//sound
+//view
 
 class App extends React.Component {
 
@@ -12,7 +16,7 @@ class App extends React.Component {
     this.state = {
       top: '50%',
       left: '50%',
-      count: 0,
+      count: -1,
       goal: 10,
       misses: 0,
       targetSize: 2,
@@ -48,6 +52,10 @@ class App extends React.Component {
     if (w < 10) {
       w = 10
     }
+
+    const s = new Audio(s1);
+    s.play();
+
     this.setState({
       top: h + "%",
       left: w + "%",
@@ -55,12 +63,13 @@ class App extends React.Component {
     });
   }
 
+
   //restart 
   playAgain() {
     this.setState({
       top: '50%',
       left: '50%',
-      count: 0,
+      count: -1,
       misses: 0,
       targetSize: 2,
     });
@@ -120,19 +129,21 @@ class App extends React.Component {
       width: Math.pow(2, this.state.targetSize) + 'vw',
       position: 'absolute',
       left: this.state.left,
-      bottom: this.state.top
+      bottom: this.state.top,
+      userSelect: 'none',
+      userDrag: 'none',
     }
 
     //starting position
-    if (this.state.count == 0) {
+    if (this.state.count == -1) {
       return (
         <div>
           <h1 className='text'>CLICK THE TARGET TO BEGIN</h1>
           <h2 className='p1'> Choose the number of targets to practice with:</h2>
-          <input type="number" onChange={this.goal} defaultValue="10" min="2" className='goal' />
+          <input type="number" onChange={this.goal} defaultValue="10" min="1" className='goal' />
           <h2 className='p2'> Choose the size of the target: </h2>
           <input type="number" onChange={this.size} defaultValue="2" min="1" max="3" className='size' />
-          <img style={button} onClick={this.onClick} src={target} alt="target" />
+          <img style={button} draggable="false" onClick={this.onClick} src={target} alt="target" />
         </div >
       )
     }
@@ -154,8 +165,8 @@ class App extends React.Component {
     //once the game has begun
     return (
       <div>
-        <p onClick={this.miss} style={range}>  </p>
-        <img style={button} onClick={this.onClick} src={target} alt="target" />
+        <p draggable="false" onClick={this.miss} style={range}>  </p>
+        <img style={button} draggable="false" onClick={this.onClick} src={target} alt="target" />
         <h1 className="score">Score: {this.state.count}</h1>
         <h1 className="score">Miss : {this.state.misses}</h1>
       </div >
